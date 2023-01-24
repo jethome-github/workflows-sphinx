@@ -6,10 +6,10 @@ on:
   workflow_call:
     inputs:
       tag:
+        default: '${{ github.ref }}'
         description: Tag to build
-        required: true
+        required: false
         type: string
-        default: "${{ github.ref }}"
       target:
         description: Target to build
         required: true
@@ -29,7 +29,6 @@ on:
       token:
         description: PAT
         required: false
-        type: string
 
 env:
   DEFAULT_PYTHON: "3.10"
