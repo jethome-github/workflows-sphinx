@@ -69,18 +69,17 @@ jobs:
         run: rm -rf _build
              echo ${{ github.event.inputs.env }}
 
-      
       - uses: hmarr/debug-action@v2
 
       - name: 🚀 Build CI
         run: |
-          make ${{ github.event.inputs.target }}" 2> >(tee warning.txt)
+          make ${{ inputs.target }} ${{ inputs.env }}  2> >(tee warning.txt)
           [[ -s warning.txt ]] && echo ---------------------- Found warnings in build ---------------------- && exit 1
  
 
       - name: ℹ️ Upload artifacts
         uses: actions/upload-artifact@v3
-        if: ${{ github.event.inputs.upload_artifact }}
+        if: ${{ inputs.upload_artifact }}
         with:
           name: HTMLOutput
           path: |
