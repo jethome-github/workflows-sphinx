@@ -79,7 +79,7 @@ jobs:
  
 
       - name: ℹ️ Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ inputs.upload_artifact }}
         with:
           name: HTMLOutput
