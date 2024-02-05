@@ -70,7 +70,7 @@ jobs:
         run: rm -rf _build
              echo ${{ github.event.inputs.env }}
 
-      - uses: hmarr/debug-action@v2
+      - uses: hmarr/debug-action@v3
 
       - name: 🚀 Build CI
         run: |
